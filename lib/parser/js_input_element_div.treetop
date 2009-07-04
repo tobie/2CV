@@ -3,6 +3,6 @@ grammar JSInputElementDiv
   include LineTerminator
   include Comment
   rule InputElementDiv
-    WhiteSpace / LineTerminator / Comment #/ Token / DivPunctuator
+    WhiteSpace / LineTerminator / Comment / Token / DivPunctuator
   end
 end
