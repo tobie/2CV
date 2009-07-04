@@ -1,0 +1,21 @@
+grammar JSPunctuator
+  rule Punctuator
+     three_car / end_with_equal / doubles / one_char
+  end
+  
+  rule one_char
+    [!%&()\\*+,-\.:;<=>?\[\]^{|}~]
+  end
+  
+  rule doubles
+    '++' / '--' / '&&' / '||' / '<<' / '>>'
+  end
+  
+  rule end_with_equal
+    [<>=!+-\\*%&|^] '='
+  end
+  
+  rule three_car
+    '===' / '<<=' / '>>=' / '>>>=' / '!==' / '>>>'
+  end
+end

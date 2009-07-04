@@ -1,0 +1,60 @@
+require File.expand_path(File.join(File.dirname(__FILE__), 'test_helper'))
+
+class JSPunctuatorTest < Test::Unit::TestCase
+  include TestHelper
+  
+  def setup
+    @parser = JSPunctuatorParser.new
+  end
+  
+  def test_punctuator
+    assert_parsed('{')
+    assert_parsed('}')
+    assert_parsed('(')
+    assert_parsed(')')
+    assert_parsed('[')
+    assert_parsed(']')
+    assert_parsed('.')
+    assert_parsed(';')
+    assert_parsed(',')
+    assert_parsed('<')
+    assert_parsed('>')
+    assert_parsed('<=')
+    assert_parsed('>=')
+    assert_parsed('==')
+    assert_parsed('!=')
+    assert_parsed('===')
+    assert_parsed('!==')
+    assert_parsed('+')
+    assert_parsed('-')
+    assert_parsed('*')
+    assert_parsed('%')
+    assert_parsed('++')
+    assert_parsed('--')
+    assert_parsed('<<')
+    assert_parsed('>>')
+    assert_parsed('>>>')
+    assert_parsed('&')
+    assert_parsed('|')
+    assert_parsed('^')
+    assert_parsed('!')
+    assert_parsed('~')
+    assert_parsed('&&')
+    assert_parsed('||')
+    assert_parsed('?')
+    assert_parsed(':')
+    assert_parsed('=')
+    assert_parsed('+=')
+    assert_parsed('-=')
+    assert_parsed('*=')
+    assert_parsed('%=')
+    assert_parsed('<<=')
+    assert_parsed('>>=')
+    assert_parsed('>>>=')
+    assert_parsed('&=')
+    assert_parsed('|=')
+    assert_parsed('^=')
+    assert_not_parsed('a=')
+    assert_not_parsed('a')
+  end
+end
