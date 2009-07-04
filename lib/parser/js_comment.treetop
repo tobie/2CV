@@ -1,0 +1,34 @@
+grammar JSComment
+  include JSLineTerminator
+  rule Comment
+     MultiLineComment / SingleLineComment
+  end
+  
+  rule MultiLineComment
+     '/*' MultiLineCommentChars? '*/'
+  end
+  
+  rule MultiLineCommentChars
+     (MultiLineNotAsteriskChar MultiLineCommentChars?) / ('*' PostAsteriskCommentChars)
+  end
+  
+  rule PostAsteriskCommentChars
+     (MultiLineNotForwardSlashOrAsteriskChar MultiLineCommentChars?) / ('*' PostAsteriskCommentChars?)
+  end
+  
+  rule MultiLineNotAsteriskChar
+    !('*') .
+  end
+  
+  rule MultiLineNotForwardSlashOrAsteriskChar
+     !('/' / '*') .
+  end
+  
+  rule SingleLineComment
+    '//' SingleLineCommentChar*
+  end
+  
+  rule SingleLineCommentChar
+    !LineTerminator .
+  end
+end

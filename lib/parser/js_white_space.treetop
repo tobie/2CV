@@ -1,0 +1,7 @@
+grammar JSWhiteSpace
+  rule WhiteSpace
+    [\x09|\x0B|\x0C|\x20|\xA0]
+    # corresponds to [\u0009|\u000B|\u000C|\u0020|\u00A0]
+    # TODO add support for Any other Unicode "space separator"
+  end
+end

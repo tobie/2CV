@@ -1,0 +1,34 @@
+grammar JSIdentifier
+  include JSReservedWord
+  include JSNumericLiteral
+  rule Identifier
+    !ReservedWord IdentifierName
+  end
+
+  rule IdentifierName
+    IdentifierStart IdentifierPart*
+  end
+
+  rule IdentifierStart
+    UnicodeLetter / '$' / '_' / UnicodeEscapeSequence
+  end
+  
+  rule IdentifierPart
+    IdentifierStart / UnicodeDigit / UnicodeEscapeSequence
+    # TODO allow UnicodeCombiningMark, UnicodeConnectorPunctuation
+  end
+  
+  rule UnicodeLetter
+    [a-zA-Z] # TODO, allow for any character in the Unicode categories
+             # "Uppercase letter (Lu)", "Lowercase letter (Ll)", "Titlecase letter (Lt)", 
+             # Modifier letter (Lm)", "Other letter (Lo)", or "Letter number (Nl)".
+  end
+  
+  rule UnicodeDigit
+    [0-9] # TODO allow any character in the Unicode category "Decimal number (Nd)"
+  end
+  
+  rule UnicodeEscapeSequence
+    '\u' HexDigit HexDigit HexDigit HexDigit
+  end
+end

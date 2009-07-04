@@ -7,6 +7,14 @@ grammar JSRegularExpressionLiteral
      'foo' # TODO
    end
    
+   rule RegularExpressionFirstChar
+     'g'
+   end
+   
+   rule RegularExpressionChar
+     'g'
+   end
+   
    rule RegularExpressionFlags
      'g' # TODO
    end
