@@ -1,21 +1,32 @@
 grammar JSRegularExpressionLiteral
-   rule RegularExpressionLiteral
-     '/' RegularExpressionBody '/' RegularExpressionFlags
-   end
+  include JSLineTerminator
+  include JSIdentifier
+  
+  rule RegularExpressionLiteral
+    '/' RegularExpressionBody '/' RegularExpressionFlags
+  end
    
-   rule RegularExpressionBody
-     'foo' # TODO
-   end
-   
-   rule RegularExpressionFirstChar
-     'g'
-   end
-   
-   rule RegularExpressionChar
-     'g'
-   end
-   
-   rule RegularExpressionFlags
-     'g' # TODO
-   end
+  rule RegularExpressionBody
+    RegularExpressionFirstChar RegularExpressionChar*
+  end
+  
+  rule RegularExpressionChar
+    !(LineTerminator / '/' / '\\') . / BackslashSequence
+  end
+  
+  rule RegularExpressionFirstChar
+    !(LineTerminator / '/' / '\\' / '*') . / BackslashSequence
+  end
+  
+  rule RegularExpressionFlags
+    IdentifierPart*
+  end
+  
+  rule NonTerminator
+    !(LineTerminator) .
+  end
+  
+  rule BackslashSequence
+    '\\' NonTerminator
+  end
 end

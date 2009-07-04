@@ -7,7 +7,25 @@ class JSRegularExpressionLiteralTest < Test::Unit::TestCase
     @parser = JSRegularExpressionLiteralParser.new
   end
   
-  def test_integers
-    assert_parsed '/foo/g'
+  def test_basic_regexp
+    assert_parsed '/foo/'
+  end
+  
+  def test_basic_regexp_with_flag
+    assert_parsed '/foo/u'
+  end
+  
+  def test_basic_regexp_with_flags
+    assert_parsed '/foo/ug'
+  end
+  
+  def test_regexp_with_asterisk
+    assert_parsed '/.*/'
+  end
+  
+  def test_regexp_with_backslash_sequences
+    assert_parsed '/\//'
+    assert_parsed '/\\\/'
+    assert_parsed '/\\\\/'
   end
 end
