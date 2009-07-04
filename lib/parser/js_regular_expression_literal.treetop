@@ -1,0 +1,13 @@
+grammar JSRegularExpressionLiteral
+   rule RegularExpressionLiteral
+     '/' RegularExpressionBody '/' RegularExpressionFlags
+   end
+   
+   rule RegularExpressionBody
+     'foo' # TODO
+   end
+   
+   rule RegularExpressionFlags
+     'g' # TODO
+   end
+end

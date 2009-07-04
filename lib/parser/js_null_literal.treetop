@@ -1,0 +1,5 @@
+grammar JSNullLiteral
+  rule NullLiteral
+    'null'
+  end
+end

@@ -1,0 +1,5 @@
+grammar JSBooleanLiteral
+  rule BooleanLiteral
+    'false' / 'true'
+  end
+end
