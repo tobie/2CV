@@ -14,4 +14,23 @@ class JSStringLiteralTest < Test::Unit::TestCase
   def test_doublequotes
     assert_parsed '"hello world!"'
   end
+
+  def test_quote_escape
+    assert_parsed %|"\\""|
+    assert_parsed %|"\'"|
+    assert_parsed %|'\\''|
+    assert_parsed %|'\"'|
+  end
+  
+  def test_backslash_escape
+    assert_parsed %|'\\\\'|
+  end
+  
+  def test_other_char_escape
+    assert_parsed %|'\\b\\f\\n\\r\\t\\v'|
+  end
+  
+  def test_foo
+    assert_parsed('\'')
+  end
 end

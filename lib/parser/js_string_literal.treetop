@@ -1,13 +1,34 @@
 grammar JSStringLiteral
-   rule StringLiteral
-     ('"' DoubleStringCharacter* '"') / ('\'' SingleStringCharacter* '\'')
-   end
+  include JSLineTerminator
+  rule StringLiteral
+    ('"' DoubleStringCharacter* '"') / ("'" SingleStringCharacter* "'")
+  end
 
-   rule SingleStringCharacter
-     [^'\\] # TODO EscapeSequence and LineTerminator support
-   end
-
-   rule DoubleStringCharacter
-     [^"\\] # TODO EscapeSequence and LineTerminator support
-   end
+  rule DoubleStringCharacter
+    !(["\\] / LineTerminator) . / [\\] EscapeSequence
+  end
+   
+  rule SingleStringCharacter
+    !(['\\] / LineTerminator) . / [\\] EscapeSequence
+  end
+  
+  rule EscapeSequence
+    CharacterEscapeSequence
+    # TODO support for
+    # 0 [lookahead ∉ DecimalDigit] 
+    # HexEscapeSequence 
+    # UnicodeEscapeSequence
+  end
+  
+  rule CharacterEscapeSequence
+    SingleEscapeCharacter / NonEscapeCharacter
+  end
+  
+  rule SingleEscapeCharacter
+    ['"\\bfnrtv]
+  end
+  
+  rule NonEscapeCharacter
+    !([\\] / LineTerminator)
+  end
 end
