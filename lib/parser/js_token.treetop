@@ -1,0 +1,10 @@
+grammar JSToken
+  include JSReservedWord
+  include JSIdentifier
+  include JSPunctuator
+  include JSNumericLiteral
+  include JSStringLiteral
+  rule Token
+    ReservedWord / Identifier / Punctuator / NumericLiteral / StringLiteral
+  end
+end
