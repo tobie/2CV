@@ -1,7 +1,9 @@
 grammar JSInputElementDiv
-  include WhiteSpace
-  include LineTerminator
-  include Comment
+  include JSWhiteSpace
+  include JSLineTerminator
+  include JSComment
+  include JSToken
+  include JSDivPunctuator
   rule InputElementDiv
     WhiteSpace / LineTerminator / Comment / Token / DivPunctuator
   end
