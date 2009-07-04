@@ -1,0 +1,5 @@
+grammar JSDivPunctuator
+   rule DivPunctuator
+     '/=' / '/'
+   end
+end
