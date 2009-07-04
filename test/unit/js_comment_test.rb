@@ -14,20 +14,18 @@ class JSCommentTest < Test::Unit::TestCase
   def test_regular_MultiLineComment
     assert_parsed '/* hello world */'
     assert_parsed  "/* 
-    
-    hello world */"
-  end
-  
-  def test_regular_MultiLineComment
-    assert_parsed '/* hello world */'
-    assert_parsed  "/* 
-    
-    hello world */"
+       hello world */"
   end
   
   def test_MultiLineComment_with_asterix
-    assert_parsed '/**a*/'
+    assert_parsed '/*****/'
+    assert_parsed '/*******a*******a*/'
     assert_parsed '/***************a*/'
+  end
+  
+  def test_MultiLineComment_with_asterix_and_forward_slash
+    assert_not_parsed '/**/*/'
+    assert_parsed '/*/*/'
   end
   
   def test_SingleLineComment
