@@ -1,0 +1,15 @@
+grammar JSLiteral
+  include JSStringLiteral
+  include JSNumericLiteral
+  rule Literal
+     NullLiteral / BooleanLiteral / NumericLiteral / StringLiteral
+   end
+
+   rule NullLiteral
+     'null'
+   end
+
+   rule BooleanLiteral
+     'false' / 'true'
+   end
+end

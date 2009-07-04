@@ -1,0 +1,5 @@
+grammar Basic
+  rule space
+    " "
+  end
+end

@@ -1,0 +1,13 @@
+grammar JSStringLiteral
+   rule StringLiteral
+     ('"' DoubleStringCharacter* '"') / ('\'' SingleStringCharacter* '\'')
+   end
+
+   rule SingleStringCharacter
+     [^'\\] # TODO EscapeSequence and LineTerminator support
+   end
+
+   rule DoubleStringCharacter
+     [^"\\] # TODO EscapeSequence and LineTerminator support
+   end
+end

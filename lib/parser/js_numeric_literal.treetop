@@ -1,0 +1,41 @@
+grammar JSNumericLiteral
+   rule NumericLiteral
+     HexIntegerLiteral / DecimalLiteral
+   end
+
+   rule DecimalLiteral
+     (DecimalIntegerLiteral '.' DecimalDigit* ExponentPart?) / ('.' DecimalDigit+ ExponentPart?) / (DecimalIntegerLiteral ExponentPart?)
+   end
+
+   rule HexIntegerLiteral
+     ('0' [xX] HexDigit+)
+   end
+
+   rule HexDigit
+     [0-9a-fA-F]
+   end
+
+   rule DecimalIntegerLiteral
+     '0' / (NonZeroDigit DecimalDigit*)
+   end
+
+   rule DecimalDigit
+     [0-9]
+   end
+
+   rule NonZeroDigit
+     [1-9]
+   end
+
+   rule ExponentPart
+     ExponentIndicator SignedInteger
+   end
+
+   rule ExponentIndicator
+     [eE]
+   end
+
+   rule SignedInteger
+     ('+' / '-')? DecimalDigit+
+   end
+end
