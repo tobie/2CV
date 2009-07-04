@@ -1,0 +1,6 @@
+grammar JSProgram
+  include JSInputElementDiv
+  rule program
+    InputElementDiv*
+  end
+end
