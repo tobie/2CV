@@ -1,0 +1,6 @@
+grammar JSInputElementStream
+  include JSInputElement
+  rule InputElementStream
+    InputElement*
+  end
+end

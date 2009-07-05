@@ -1,10 +1,10 @@
 require File.expand_path(File.join(File.dirname(__FILE__), 'test_helper'))
 
-class JSProgramTest < Test::Unit::TestCase
+class JSInputElementStreamTest < Test::Unit::TestCase
   include TestHelper
   
   def setup
-    @parser = JSProgramParser.new
+    @parser = JSInputElementStreamParser.new
   end
   
   def test_external_file_with_no_regexp_lieterals

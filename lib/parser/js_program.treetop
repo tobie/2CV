@@ -1,6 +1,0 @@
-grammar JSProgram
-  include JSInputElement
-  rule program
-    InputElement*
-  end
-end
