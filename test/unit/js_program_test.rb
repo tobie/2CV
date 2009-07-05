@@ -13,8 +13,13 @@ class JSProgramTest < Test::Unit::TestCase
 
   end
   
-  def test_external_file_regexp_literals
+  def test_external_file_with_regexp_literals
     path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'fixtures', 'lit_regexp.js'))
+    assert_parsed(File.open(path){ |f| f.read })
+  end
+  
+  def test_external_file_with_regexp_literals_and_division
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'fixtures', 'lit_regexp_and_div.js'))
     assert_parsed(File.open(path){ |f| f.read })
   end
   
