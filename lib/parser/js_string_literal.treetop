@@ -21,14 +21,7 @@ grammar JSStringLiteral
   end
   
   rule CharacterEscapeSequence
-    SingleEscapeCharacter / NonEscapeCharacter
-  end
-  
-  rule SingleEscapeCharacter
-    ['"\\bfnrtv]
-  end
-  
-  rule NonEscapeCharacter
-    !([\\] / LineTerminator)
+    ['"\\bfnrtv] / !([\\] / LineTerminator) 
+    # corresponds to: SingleEscapeCharacter / NonEscapeCharacter
   end
 end

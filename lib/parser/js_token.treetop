@@ -5,7 +5,7 @@ grammar JSToken
   include JSNumericLiteral
   include JSStringLiteral
   rule Token
-    # Note we use IdentifierName instead of Identifier as we don't need to watch out for reservedWords.
+    # Note we use IdentifierName instead of Identifier as we no longer need to watch out for ReservedWord.
     ReservedWord / IdentifierName / Punctuator / NumericLiteral / StringLiteral
   end
 end

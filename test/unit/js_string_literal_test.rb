@@ -29,8 +29,4 @@ class JSStringLiteralTest < Test::Unit::TestCase
   def test_other_char_escape
     assert_parsed %|'\\b\\f\\n\\r\\t\\v'|
   end
-  
-  def test_foo
-    assert_parsed('\'')
-  end
 end
