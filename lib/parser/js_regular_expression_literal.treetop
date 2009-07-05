@@ -11,22 +11,18 @@ grammar JSRegularExpressionLiteral
   end
   
   rule RegularExpressionChar
-    !(LineTerminator / '/' / '\\') . / BackslashSequence
+    !(LineTerminator / [/\\]) . / BackslashSequence
   end
   
   rule RegularExpressionFirstChar
-    !(LineTerminator / '/' / '\\' / '*') . / BackslashSequence
+    !(LineTerminator / [/\\\\*]) . / BackslashSequence
   end
   
   rule RegularExpressionFlags
     IdentifierPart*
   end
   
-  rule NonTerminator
-    !(LineTerminator) .
-  end
-  
   rule BackslashSequence
-    '\\' NonTerminator
+    [\\] !(LineTerminator) .
   end
 end

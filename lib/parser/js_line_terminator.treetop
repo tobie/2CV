@@ -1,6 +1,6 @@
 grammar JSLineTerminator
   rule LineTerminator
-    [\x0A|\x0D|\xE2\x80\xA8|\xE2\x80\xA9]
-    # corresponds to [\u000A|\u000D|\u2028|\u2029]
+    [\x0A\x0D\xE2\x80\xA8\xE2\x80\xA9]
+    # corresponds to [\u000A\u000D\u2028\u2029]
   end
 end

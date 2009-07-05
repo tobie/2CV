@@ -1,0 +1,17 @@
+grammar JSInputElement
+  include JSWhiteSpace
+  include JSLineTerminator
+  include JSComment
+  include JSToken
+  include JSDivPunctuator
+  include JSRegularExpressionLiteral
+  rule InputElement
+    WhiteSpace / LineTerminator / Comment / Token / regexp / DivPunctuator
+  end
+  
+  rule regexp
+    # based on http://www.mozilla.org/js/language/js20-2002-04/rationale/syntax.html#regular-expressions
+    # TODO make ES 3.0 compliant
+    &('~' / '||=' / '||' / '|=' / '|' / '{' / '^^=' / '^^' / '^=' / '^' / '[' / 'with' / 'while' / 'volatile' / 'var' / 'use' / 'typeof' / 'try' / 'transient' / 'throws' / 'throw' / 'synchronized' / 'switch' / 'static' / 'return' / 'package' / 'new' / 'native' / 'namespace' / 'is' / 'interface' / 'instanceof' / 'in' / 'import' / 'implements' / 'if' / 'goto' / 'function' / 'for' / 'finally' / 'final' / 'extends' / 'export' / 'enum' / 'else' / 'do' / 'delete' / 'default' / 'debugger' / 'continue' / 'const' / 'catch' / 'case' / 'break' / 'abstract' / '@' / '?' / '>>>=' / '>>>' / '>>=' / '>>' / '>=' / '>' / '===' / '==' / '=' / '<=' / '<<=' / '<<' / '<' / ';' / '::' / ':' / '/=' / '/' / '...' / '..' / '.' / '->' / '-=' / '-' / ',' / '+=' / '+' / '*=' / '*' / '(' / '&=' / '&&=' / '&&' / '&' / '%=' / '%' / '#' / '!==' / '!=' / '!') RegularExpressionLiteral
+  end
+end
