@@ -20,5 +20,6 @@ require 'treetop'
   js_input_element
   js_input_element_stream
 ].each do |file_name|
-  Treetop.load File.expand_path(File.join(File.dirname(__FILE__), 'parser', file_name))
+  Treetop.load File.expand_path(File.join(File.dirname(__FILE__), 'parser', 'lexical_grammar', file_name))
 end
+
